@@ -178,4 +178,10 @@ void ISkinControl::SetAttribute( LPCTSTR pstrName, LPCTSTR pstrValue )
 		if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
 		m_colReadOnlyText = _tcstoul(pstrValue, &pstr, 16);
 	}
+	else if( _tcscmp(pstrName, _T("bkcolor")) == 0 ) 
+	{
+		if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+		m_colBack = _tcstoul(pstrValue, &pstr, 16);
+	}
+
 }

@@ -359,12 +359,18 @@ void CSkinEdit::SetDefaultTextMode( BOOL bIsDefText )
 
 HBRUSH CSkinEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 {
+	pDC->SetBkMode(TRANSPARENT);   
+
 	if (m_bIsDefText)
 		pDC->SetTextColor(m_colDefText);
 	else
 		pDC->SetTextColor(m_colNormalText);
 
-	return (HBRUSH)NULL_BRUSH;
+	if ( m_colBack == RGB(255,255,255) )  return (HBRUSH)NULL_BRUSH;
+	
+	//±³¾°É«   
+	HBRUSH hBr = CreateSolidBrush(m_colBack);   
+	return (HBRUSH)   hBr;   
 }
 
 LRESULT CSkinEdit::OnNcHitTest(CPoint point)

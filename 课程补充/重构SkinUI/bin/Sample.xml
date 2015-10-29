@@ -45,10 +45,20 @@
 		<item text="配置文件添加数据4"/>
 	</ComBox>
 	
+	<ComBox text="最新价" bkcolor="#4C564D" format="1" pos="1,1,250,135,120,200" id="5106" arrownormalimg="Res\ComboBox\black_inputbtn_normal.png" arrowhotimg="Res\ComboBox\black_inputbtn_highlight.png" arrowpushimg="Res\ComboBox\black_inputbtn_down.png" arrowwidth="20" boxheight="18" textcolor="#949992" trans="true">
+		<item text="配置文件添加数据1"/>
+		<item text="配置文件添加数据2"/>
+		<item text="配置文件添加数据3"/>
+		<item text="配置文件添加数据4"/>
+	</ComBox>
+	
+	
 	<Edit pos="0,0,10,220,200,245" defaulttext="这是默认字符串">
 		<bknormalimg value="Res\Edit\frameBorderEffect_normalDraw.png" ninepart="2,2,2,2"/>
 		<bkhotimg value="Res\Edit\frameBorderEffect_mouseDownDraw.png" ninepart="2,2,2,2"/>
 	</Edit>
+	
+	<Edit pos="1,1,250,100,120,120" text="0.10" bkcolor="#4C564D" fontnormalcolor="#949992"/>
 	
 	<Edit pos="0,0,10,250,200,275" iconimage="Res\Edit\keyboard.png" passwordchar="*" clientpos="3,3" handcur="true" scrollimage="Res\Scroll\SKIN_SCROLL.bmp">
 		<bknormalimg value="Res\Edit\frameBorderEffect_normalDraw.png" ninepart="2,2,2,2"/>

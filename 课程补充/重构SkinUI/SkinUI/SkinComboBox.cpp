@@ -180,6 +180,8 @@ HBRUSH CSkinComboBox_Edit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 {
 	bool bIsReadOnly = ((GetStyle() & ES_READONLY) != 0) ? true : false;
  
+	pDC->SetBkMode(TRANSPARENT); 
+
  	if (m_bIsDefText)
  	{
  		if( bIsReadOnly )
@@ -193,7 +195,13 @@ HBRUSH CSkinComboBox_Edit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
  		else pDC->SetTextColor(m_colNormalText);
  	}
 
-	return (HBRUSH)NULL_BRUSH;
+	if ( m_colBack == RGB(255,255,255) )  return (HBRUSH)NULL_BRUSH;
+
+	//±³¾°É«   
+	HBRUSH hBr = CreateSolidBrush(m_colBack);   
+	return (HBRUSH)   hBr;   
+
+	//return (HBRUSH)NULL_BRUSH;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -877,6 +885,15 @@ void CSkinComboBox::SetAttribute( LPCTSTR pstrName, LPCTSTR pstrValue )
 	{
 		if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
 		SetEditTextColor( _tcstoul(pstrValue, &pstr, 16));
+	}
+	else if( _tcscmp(pstrName, _T("bkcolor")) == 0 ) 
+	{
+		if( *pstrValue == _T('#')) pstrValue = ::CharNext(pstrValue);
+		m_SkinComboBoxEdit.m_colBack = _tcstoul(pstrValue, &pstr, 16);
+	}
+	else if( _tcscmp(pstrName, _T("format")) == 0 ) 
+	{
+		m_SkinComboBoxEdit.ModifyStyle(0,_ttoi(pstrValue));
 	}
 }
 
